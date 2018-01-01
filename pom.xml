@@ -1,0 +1,38 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.et</groupId>
+  <artifactId>upload-common</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <!-- 定义所有jar的版本库比如说文件上传自定义版本为1.3.2
+   mysql的 版本号为5.1.6 fileupload-version 可以随便写-->
+   <properties>
+   	<fileupload-version>1.3.2</fileupload-version>
+   	<mysql-version>5.1.6</mysql-version>
+   </properties>
+   <!-- 规定子项目必须要有的jar包 子项目直接加载 -->
+   <dependencies>
+   	<dependency>
+   		<groupId>commons-beanutils</groupId>
+   		<artifactId>commons-beanutils</artifactId>
+   		<version>1.9.0</version>
+   	</dependency>
+   </dependencies>
+   <dependencyManagement>
+   <!-- 父项目定义子项目将来使用jar包的版本  子项目选择性的加载 -->
+   	<dependencies>
+   		<dependency>
+   			<groupId>commons-fileupload</groupId>
+   			<artifactId>commons-fileupload</artifactId>
+   			<version>${fileupload-version}</version>
+   		</dependency>
+   		<dependency>
+			<groupId>Mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql-version}</version>
+		</dependency>
+   	
+   	</dependencies>
+   </dependencyManagement>
+   
+</project>
